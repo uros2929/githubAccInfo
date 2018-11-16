@@ -1,3 +1,7 @@
+## Online [DEMO](https://uros2929.github.io/githubAccInfo/) version
+
+## Using AngularJS,HttpClient,Bootstrap
+
 # CheckInfoOnGit
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
