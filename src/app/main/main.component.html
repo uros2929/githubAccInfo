@@ -1,0 +1,37 @@
+
+<header>
+  <h1>Check informations about your Github</h1>
+  <input type="text" placeholder="Github Username" #userName> <br><br>
+  <button (click)="search(userName)">Search</button>
+</header>
+
+<main>
+<div *ngIf="dataFromServer">
+<h3>{{dataFromServer.name}}</h3>
+<h3>Account created at: {{dataFromServer.created_at.slice(0,-10)}}</h3>
+<h3>Location: {{dataFromServer.location}}</h3>
+<a href={{dataFromServer.html_url}} target="_blank"><h3>Number of public repositories: {{dataFromServer.public_repos}}</h3></a>
+<h3>Following: {{dataFromServer.following}}</h3>
+<a href="#"><h3 (click)="showAllFollowers(modalFollowers)">Followers: {{dataFromServer.followers}}</h3></a>
+<br>
+</div>
+</main>
+<footer></footer>
+
+<div class="modal modalFollowers" #modalFollowers>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">FOLLOWERS</h5>
+        <span (click)="closeModal(modalFollowers)">&times;</span>
+      </div>
+      <div class="modal-body">
+          <ul>
+            <li *ngFor="let follower of followersArray">
+              {{follower.userName}}/ <a href={{follower.url}} target="_blank">{{follower.url}}</a>
+            </li>
+          </ul>  
+        </div>
+    </div>
+  </div>
+</div>
